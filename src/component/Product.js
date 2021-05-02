@@ -8,6 +8,7 @@ const Product = ({ items, loading}) => {
     return <div>Loading...</div>;
   } else {
     const renderedProducts = (item) => {
+      const description = item.description;
       return (
         <div>
           <Card style={{ maxWidth:"17rem" }} key={item.id} className="box">
@@ -15,7 +16,7 @@ const Product = ({ items, loading}) => {
             <Card.Body >
               <Card.Title className="text-uppercase fs-6">{item.product_name}</Card.Title>
               <Card.Text>
-                {item.description}
+                {description.charAt(0).toUpperCase() + description.slice(1)}
               </Card.Text>
               <Card.Text className="fw-bold">
                 {item.price}

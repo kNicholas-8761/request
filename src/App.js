@@ -4,19 +4,17 @@ import Product from "./component/Product";
 import TotalItems from "./component/TotalItems";
 import Pagination from "./component/Pagination";
 import { Container } from "react-bootstrap";
-
-
-
+/* import {useDispatch, useSelector } from "react-redux"; */
 
 function App() {
-  const [items, setItems] = useState([]); //Data we fetch from the api
-  const [loading, setLoading] = useState(false); // Know when the item have been loaded from the api endpoint
+  const [items, setItems] = useState([]); 
+  const [loading, setLoading] = useState(false); 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(8);
 
   const getData = () => {
     fetch("./productsData.json")
-      .then((res) => res.json()) //Convert to json format
+      .then((res) => res.json())
       .then((json) => {
         setItems(json);
         setLoading(true);
