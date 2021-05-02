@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import Product from './component/Product'
+import TotalItems from './component/TotalItems'
 import Pagination from './component/Pagination'
 import {Container} from 'react-bootstrap'
 
@@ -24,7 +25,6 @@ function App() {
   useEffect(() => {
     getData();
   }, []);
-
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
@@ -35,6 +35,7 @@ function App() {
 
   return (
     <Container className="App">
+      <TotalItems items={items}/>
       <Product items={currentItems} loading={loading} />
       <Pagination 
       itemsPerPage={itemsPerPage} 

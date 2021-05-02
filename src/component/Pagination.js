@@ -59,7 +59,6 @@ const Pagination = ({
   if (minPageNumberLimit >= 1) {
     pageDecrementBtn = <li onClick={handlePrevBtn}> &hellip; </li>;
   }
-
   return (
     <ul className="pageNumbers d-flex justify-content-end p-3">
       <li>
