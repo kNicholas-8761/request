@@ -7,7 +7,7 @@ const Pagination = ({
   currentPage,
   setCurrentPage,
 }) => {
-  const [pageNumberLimit, setPageNumberLimit] = useState(3);
+  const [pageNumberLimit] = useState(3);
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(3);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
@@ -44,7 +44,7 @@ const Pagination = ({
   const handlePrevBtn = () => {
     setCurrentPage(currentPage - 1);
 
-    if ((currentPage - 1) % pageNumberLimit == 0) {
+    if ((currentPage - 1) % pageNumberLimit === 0) {
       setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
       setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
     }

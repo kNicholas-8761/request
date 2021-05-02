@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import './App.css';
-import Product from './component/Product'
-import TotalItems from './component/TotalItems'
-import Pagination from './component/Pagination'
-import {Container} from 'react-bootstrap'
+import "./App.css";
+import Product from "./component/Product";
+import TotalItems from "./component/TotalItems";
+import Pagination from "./component/Pagination";
+import { Container } from "react-bootstrap";
+
+
+
 
 function App() {
   const [items, setItems] = useState([]); //Data we fetch from the api
   const [loading, setLoading] = useState(false); // Know when the item have been loaded from the api endpoint
   const [currentPage, setCurrentPage] = useState(1);
-  const [PageNumberLimit, SetPageNumberLimit] = useState(3);
-  const [maxPageNumberLimit, SetMaxPageNumberLimit] = useState(3);
-  const [mixPageNumberLimit, SetMinPageNumberLimit] = useState(1);
   const [itemsPerPage] = useState(8);
 
   const getData = () => {
@@ -27,22 +27,22 @@ function App() {
   }, []);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
+  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
   //Change Page
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <Container className="App">
-      <TotalItems items={items}/>
+      <TotalItems items={items} />
       <Product items={currentItems} loading={loading} />
-      <Pagination 
-      itemsPerPage={itemsPerPage} 
-      totalItems={items.length}
-      paginate={paginate}
-      currentPage={currentPage}
-      setCurrentPage={setCurrentPage}
+      <Pagination
+        itemsPerPage={itemsPerPage}
+        totalItems={items.length}
+        paginate={paginate}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
       />
     </Container>
   );
